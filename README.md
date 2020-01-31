@@ -1,4 +1,4 @@
-## ECS Demo
+## Traefik ECS Demo
 
 ## What are we up to?
 We will use [Traefik](https://containo.us/traefik/) to proxy incoming requests based on `Host` headers to the ECS Services.
@@ -38,8 +38,6 @@ Traefik does the redirection (to the upstream services) based on a `Host` header
 
     You routes should be similar to this
         ![](files/gifs/route_tables.gif)
-
-* Create a SSH Key Pair as shown [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair). Name it `traefik-ecs-test`
 
 ## Let's Do It !
 * Create a docker image (on top of official Traefik image) and store it in ECR (of the same AWS Account)
