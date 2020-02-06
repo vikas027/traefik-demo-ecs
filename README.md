@@ -100,19 +100,18 @@ For example, it could be `traefik.cli-api.fun`
     ```bash
     terraform destroy -var-file=./ecs-demo.tfvars -force
     ```
-- From the AWS Console
-We just need to remove resources which we had created earlier. Double check the VPC ID :)
-* Delete the NAT Gateway
-* Release Elastic IP
-* Delete VPC
-* Delete ECR Docker Repository `traefik`
+- From the AWS Console, we just need to remove resources which we had created earlier. Double check the VPC ID :)
+    * Delete the NAT Gateway
+    * Release Elastic IP
+    * Delete VPC
+    * Delete ECR Docker Repository traefik
 
 ## References
 * https://docs.traefik.io/v1.7/configuration/backends/ecs/
 
 ## Alternatives
 There are a few alternatives but I have not tried these out.
-* Route53 for [service discovery](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html)
+* AWS [Route53](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html)
 * Hashicorp Consul
 
 ## Questions/Issues:
