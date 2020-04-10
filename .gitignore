@@ -30,3 +30,4 @@ override.tf.json
 
 # Local History
 .history
+.python-version

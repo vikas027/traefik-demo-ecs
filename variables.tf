@@ -1,12 +1,18 @@
 // Common Vars
 variable "aws_region" {
-  default = "ap-southeast-2"
+  description = "AWS Region"
+}
+
+variable "azs" {
+  type = list
 }
 
 variable "domain" {}
 
+variable "key_name" {}
+
 // VPC
-variable "vpc_id" {}
+variable "vpc_name" {}
 
 variable "vpc_cidr_block" {
   description = "CIDR Block for VPC"
@@ -24,7 +30,7 @@ variable "cidr_subnets_public" {
 
 // ECS
 variable "cluster_name" {
-  default = "traefik-test"
+  description = "Name of ECS Cluster"
 }
 
 variable "ecs_instance_type" {}

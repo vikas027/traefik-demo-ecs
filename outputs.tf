@@ -1,13 +1,13 @@
 locals {
   output = <<OUTPUT
 #### Run these commands
-# Check if Traefik is working (should )
+# Check if Traefik is working
 curl -H 'Host: traefik.cli-api.fun' ${module.ecs-cluster.alb_dns}
 
 # Check if example task 1 is working (should show the IP of the container)
 curl -H 'Host: site-counter-1.cli-api.fun' ${module.ecs-cluster.alb_dns}
 
-# Check if example task 1 is working (should not the IP of the container)
+# Check if example task 2 is working (should not show the IP of the container)
 curl -H 'Host: site-counter-2.cli-api.fun' ${module.ecs-cluster.alb_dns}
 
 #### Example Logs if everything goes fine
