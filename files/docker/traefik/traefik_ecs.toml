@@ -1,0 +1,42 @@
+checkNewVersion = false
+logLevel = "DEBUG"
+defaultEntryPoints = ["http"]
+
+InsecureSkipVerify = true
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+  [entryPoints.api]
+  address = ":8080"
+
+[ping]
+entryPoint = "http"
+
+[api]
+entrypoint="api"
+dashboard = true
+debug = true
+  [api.statistics]
+    recentErrors = 10
+
+[file]
+  [backends]
+    [backends.backend1]
+      [backends.backend1.servers.server0]
+      url = "http://127.0.0.1:8080"
+
+  [frontends]
+    [frontends.frontend1]
+    backend = "backend1"
+      [frontends.frontend1.routes.test_0]
+      rule = "Host:traefik.DOMAIN"
+
+[ecs]
+clusters = ["CLUSTER_HOST"]
+watch = true
+domain = "DOMAIN"
+autoDiscoverClusters = false
+refreshSeconds = 15
+exposedByDefault = true
+region = "ap-southeast-2"
