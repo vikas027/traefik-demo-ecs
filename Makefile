@@ -53,4 +53,4 @@ help:
 	@echo "  tf-plan                    Execute Terraform Plan (see which resources is Terraform going to create/update)"
 	@echo "  tf-apply                   Execute Terraform Apply"
 	@echo "  tf-destroy                 Execute Terraform Force Destroy"
-	@echo "  nuke                       Destroy everything i"
+	@echo "  nuke                       Destroy everything"
