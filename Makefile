@@ -3,13 +3,20 @@
 # Usage:
 # make help
 
+TRAEFIK_VERSION := v1.7.24
+ACCOUNT_ID := $(shell aws sts get-caller-identity | jq -r .Account)
+
 ## TARGETS
 .ONESHELL:
 
 .PHONY: build-push-docker-image
 build-push-docker-image:
 	@echo "\n## Build a docker image and push it to ECR\n"
-	./files/scripts/traefik-image.sh
+	DOCKER_BUILDKIT=1 docker build -t traefik:$(TRAEFIK_VERSION)-alpine-ecs -f ./files/docker/traefik/Dockerfile .
+	aws ecr create-repository --repository-name traefik || echo
+	$$(aws ecr --region ap-southeast-2 get-login --no-include-email)
+	docker tag traefik:$(TRAEFIK_VERSION)-alpine-ecs $(ACCOUNT_ID).dkr.ecr.ap-southeast-2.amazonaws.com/traefik:$(TRAEFIK_VERSION)-alpine-ecs
+	docker push $(ACCOUNT_ID).dkr.ecr.ap-southeast-2.amazonaws.com/traefik:$(TRAEFIK_VERSION)-alpine-ecs
 
 .PHONY: create-key-pair
 create-key-pair:
