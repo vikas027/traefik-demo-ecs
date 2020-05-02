@@ -11,8 +11,8 @@ RUN apk update && \
     && rm -rf /var/cache/apk/* \
     && ln -s /root/.local/bin/aws /usr/local/bin/
 
-COPY traefik_ecs.toml /etc/traefik/traefik.toml
+COPY ./files/docker/traefik/traefik_ecs.toml /etc/traefik/traefik.toml
 
-COPY docker-entrypoint.sh /docker-entrypoint.sh
+COPY ./files/docker/traefik/docker-entrypoint.sh /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
