@@ -1,4 +1,4 @@
-FROM traefik:v1.7.24-alpine
+FROM traefik:v1.7.30-alpine
 
 ENV AWS_DEFAULT_REGION='ap-southeast-2'
 

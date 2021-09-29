@@ -3,7 +3,7 @@
 # Usage:
 # make help
 
-TRAEFIK_VERSION := v1.7.24
+TRAEFIK_VERSION := v1.7.30
 ACCOUNT_ID := $(shell aws sts get-caller-identity | jq -r .Account)
 
 ## TARGETS

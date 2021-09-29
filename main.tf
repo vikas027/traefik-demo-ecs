@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.12, < 13"
 
   required_providers {
     aws      = "2.55.0"
@@ -19,6 +19,9 @@ module "vpc" {
 }
 
 module "ecs-cluster" {
+  # depends_on = [
+  #   module.vpc
+  # ]
   source            = "./modules/ecs-cluster"
   vpc_id            = module.vpc.vpc_id
   vpc_cidr_block    = var.vpc_cidr_block

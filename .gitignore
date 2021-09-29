@@ -31,3 +31,6 @@ override.tf.json
 # Local History
 .history
 .python-version
+
+# Temp File
+output.txt
