@@ -8,14 +8,13 @@
             {
                 "name": "DOMAIN",
                 "value": "${domain}"
-            },
-            {
-                "name": "REGION",
-                "value": "${region}"
             }
         ],
         "name": "${name}",
+        "mountPoints": [],
         "image": "${docker_image}",
+        "entryPoint": ["traefik", "--providers.ecs.clusters", "${cluster_name}", "--log.level", "DEBUG", "--providers.ecs.region", "${region}", "--api.insecure"],
+        "cpu": 0,
         "portMappings": [
             {
                 "protocol": "tcp",
@@ -26,14 +25,9 @@
         "dockerLabels": {
             "traefik.enable": "false"
         },
+        "memory": 512,
+        "privileged": true,
         "essential": true,
-        "logConfiguration": {
-            "logDriver": "awslogs",
-            "options": {
-                "awslogs-group": "${log_group}",
-                "awslogs-region": "${region}",
-                "awslogs-stream-prefix": "${name}"
-            }
-        }
+        "volumesFrom": []
     }
 ]

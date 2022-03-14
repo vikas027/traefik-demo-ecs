@@ -114,5 +114,9 @@ There are a few alternatives but I have not tried these out.
 ## Questions/Issues:
 If you a suggestion to simplify this demo further for newbies, feel free to raise a PR or create an issue.
 
+## TO-DO:
+- Enable Traefik Access Logs on a diff CloudWatch Log Group.
+- EFS
+
 ## Finally
 Traefik is awesome, I absolutely love it. Traefik is my goto reverse proxy on Kubernetes, Docker, or even when I need static files. Traefik v2 (a complete overhaul) is awesome too, and works beautifully on Kubernetes. Try it out :)

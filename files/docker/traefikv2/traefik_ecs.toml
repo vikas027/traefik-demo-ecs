@@ -1,0 +1,42 @@
+[global]
+  checkNewVersion = false
+  sendAnonymousUsage = false
+
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+
+[api]
+  dashboard = true
+  debug = true
+
+[ping]
+entryPoint = "http"
+
+[providers]
+  [providers.file]
+    directory = "/etc/traefik/confs"
+    watch = true
+
+  [providers.ecs]
+    clusters = ["CLUSTER_HOST"]
+    exposedByDefault = false
+    refreshSeconds = 15
+    autoDiscoverClusters = false
+    region = "REGION"
+
+## OBSERVABILITY
+# https://doc.traefik.io/traefik/v2.0/observability/metrics/prometheus/
+[metrics]
+  [metrics.prometheus]
+    buckets = [0.1,0.3,1.2,5.0]
+    addEntryPointsLabels = true
+    addServicesLabels = true
+
+# https://doc.traefik.io/traefik/v2.0/observability/logs/
+[log]
+  level = "DEBUG"
+
+# https://doc.traefik.io/traefik/v2.0/observability/access-logs/
+[accessLog]
+  format = "json"

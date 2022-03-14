@@ -1,0 +1,6 @@
+[http]
+  [http.middlewares]
+    [http.middlewares.dashboard-auth.basicAuth]
+    users = [
+      "vikas:$apr1$a7rs84yc$ekYueZ5tFpPpyLg9ZQW5l1"
+    ]
