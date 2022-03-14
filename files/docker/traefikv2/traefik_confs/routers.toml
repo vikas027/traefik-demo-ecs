@@ -1,0 +1,12 @@
+# https://community.traefik.io/t/endless-502-forwarding-when-calling-dashboard-via-subdomain-6123/3689/8?u=vikas027
+[http.routers]
+  [http.routers.dashboard]
+    rule = "Host(`traefik.DOMAIN`)"
+    entrypoints = "http"
+    service = "api@internal"
+    middlewares = ["dashboard-auth"]
+
+  [http.routers.prometheus]
+    rule = "Host(`prometheus.DOMAIN`)"
+    entrypoints = "http"
+    service = "prometheus@internal"

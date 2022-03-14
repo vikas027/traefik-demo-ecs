@@ -18,7 +18,6 @@
         ],
         "command": null,
         "linuxParameters": null,
-        "cpu": 0,
         "resourceRequirements": null,
         "ulimits": null,
         "dnsServers": null,
@@ -26,7 +25,6 @@
         "workingDirectory": null,
         "secrets": null,
         "dockerSecurityOptions": null,
-        "memory": 128,
         "memoryReservation": null,
         "volumesFrom": [],
         "stopTimeout": null,
@@ -45,10 +43,8 @@
         "user": null,
         "readonlyRootFilesystem": null,
         "dockerLabels": {
-            "traefik.frontend.rule": "Host:${service_name}.${domain}",
-            "traefik.enable": "true",
-            "traefik.backend": "${service_name}",
-            "traefik.protocol": "http"
+            "traefik.http.routers.${service_name}.rule": "Host(`${service_name}.${domain}`)",
+            "traefik.enable": "true"
         },
         "systemControls": null,
         "privileged": false,

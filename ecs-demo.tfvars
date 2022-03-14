@@ -16,8 +16,6 @@ ecs_instance_type = "t2.large"
 
 ecs_max_instances = 5
 
-traefik_image = "traefik:v1.7.30-alpine-ecs"
-
 // VPC
 vpc_name = "ecs-demo"
 

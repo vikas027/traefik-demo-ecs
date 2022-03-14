@@ -38,7 +38,7 @@ resource "aws_security_group_rule" "ecs_instance_sg_ssh" {
   from_port         = 22
   to_port           = 22
   protocol          = "tcp"
-  cidr_blocks       = [var.vpc_cidr_block]
+  cidr_blocks       = [var.vpc_cidr_block, "0.0.0.0/0"]
   security_group_id = aws_security_group.ecs_instance_sg.id
 }
 

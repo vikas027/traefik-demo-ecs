@@ -10,6 +10,9 @@ curl -H 'Host: site-counter-1.cli-api.fun' ${module.ecs-cluster.alb_dns}
 # Check if example task 2 is working (should not show the IP of the container)
 curl -H 'Host: site-counter-2.cli-api.fun' ${module.ecs-cluster.alb_dns}
 
+# Check if example whoami is working
+curl -H 'Host: whoami.cli-api.fun' ${module.ecs-cluster.alb_dns}
+
 #### Example Logs if everything goes fine
 🍺  ~$ curl -H 'Host: traefik.cli-api.fun' ecs-traefik-test-app-alb-901515036.ap-southeast-2.elb.amazonaws.com
 <a href="/dashboard/">Found</a>.

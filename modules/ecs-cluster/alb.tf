@@ -29,5 +29,6 @@ resource "aws_lb_target_group" "ecs-ingress-http" {
     protocol = "HTTP"
     path     = "/ping"
     port     = 80
+    matcher  = "200"
   }
 }
